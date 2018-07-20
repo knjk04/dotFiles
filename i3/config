@@ -241,3 +241,6 @@ exec google-chrome-stable
 exec_always feh --bg-scale /home/karan/Pictures/walls/starry.jpg
 
 exec compton -f
+
+exec --no-startup-id nm-applet
+
