@@ -43,3 +43,8 @@ URxvt*color15:                        #ffffff
 
 URxvt*visualBell:  false
 
+! Rofi
+rofi.color-enabled:true
+rofi.color-window: #14161F,#14161F,#14161F
+rofi.color-normal: #14161F, #6D8EC1, #14161F, #6D8EC1, #14161F
+rofi.color-active: #14161F, #6D8EC1, #14161F, #6D8EC1, #14161F
