@@ -238,6 +238,8 @@ bindsym XF86AudioPrev exec playerctl previous
 exec emacs
 exec google-chrome-stable
 
-exec_always feh --bg-scale /home/karan/Pictures/walls/starry.jpg
+exec_always feh --bg-scale /home/karan/Pictures/walls/mountains.jpg
 
 exec compton -f
+
+exec safeeyes
