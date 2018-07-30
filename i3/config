@@ -133,6 +133,7 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
 assign [class="Emacs"] $ws3
+assign [class="Google-chrome"] $ws1
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -243,3 +244,20 @@ exec_always feh --bg-scale /home/karan/Pictures/walls/mountains.jpg
 exec compton -f
 
 exec safeeyes
+
+bindsym --release Print exec "scrot -m  /home/karan/Pictures/Screenshots/%s_%H%M_%d.%m.%Y_$wx$h.png -e 'xclip -selection c -t image/png < $f'"
+
+# Monitor setup
+set $monitor_one DVI-I-1
+set $monitor_two HDMI-1
+
+# bind workspaces to monitor 1
+workspace $ws1 output $monitor_one
+workspace $ws2 output $monitor_one
+
+# bind workspaces to monitor 2
+workspace $ws3 output $monitor_two
+
+# exec_always xrandr --output eDP1 --mode 1920x1080 --pos 0x0 --rotate normal --output VGA1 --mode 1920x1080 --right-of eDP1 --rotate normal
+exec_always xrandr --output DVI-I-1 --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-1 --mode 1920x1080 --right-of DVI-I-1 --rotate normal
+
