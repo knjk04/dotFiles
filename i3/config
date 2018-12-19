@@ -261,3 +261,5 @@ workspace $ws3 output $monitor_two
 # exec_always xrandr --output eDP1 --mode 1920x1080 --pos 0x0 --rotate normal --output VGA1 --mode 1920x1080 --right-of eDP1 --rotate normal
 exec_always xrandr --output DVI-I-1 --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-1 --mode 1920x1080 --right-of DVI-I-1 --rotate normal
 
+bindsym --release Shift+Print exec "scrot -s  /home/karan/Pictures/Screenshots/%s_%H%M_%d.%m.%Y_$wx$h.png -e 'xclip -selection c -t image/png < $f'"
+
