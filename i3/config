@@ -30,7 +30,7 @@ font pango:System San Francisco Display 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec urxvt
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -42,8 +42,9 @@ bindsym $mod+Shift+q kill
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
-bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 800 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 18"
+#bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 800 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 18"
 
+bindsym $mod+d exec rofi -show run -width 100 --location 0 -lines 19 -bw 0 -padding 450 -separator-style none -opacity 90
 
 # change focus
 bindsym $mod+h focus left
@@ -133,7 +134,6 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
 assign [class="Emacs"] $ws3
-assign [class="Google-chrome"] $ws1
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -216,8 +216,6 @@ bar {
 bindsym $mod+shift+x exec betterlockscreen --lock 
 # bindsym $mod+shift+x exec betterlockscreen -u /home/karan/Pictures/walls -r 1920x1080 -b 0.5
 
-
-
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
@@ -239,25 +237,31 @@ bindsym XF86AudioPrev exec playerctl previous
 exec emacs
 exec google-chrome-stable
 
-exec_always feh --bg-scale /home/karan/Pictures/walls/mountains.jpg
+exec compton -f
+
+exec --no-startup-id nm-applet
+
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id $Locker, mode "default"
+    bindsym e exec --no-startup-id i3-msg exit, mode "default"
+    bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
+    bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"  
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+Pause mode "$mode_system"
+
+bindsym --release Print exec "scrot -m  /home/karan/Pictures/Screenshots/%s_%H%M_%d.%m.%Y_$wx$h.png -e 'xclip -selection c -t image/png < $f'"
+
+bindsym --release Shift+Print exec "scrot -s  /home/karan/Pictures/Screenshots/%s_%H%M_%d.%m.%Y_$wx$h.png -e 'xclip -selection c -t image/png < $f'"
+exec_always feh --bg-scale /home/karan/Pictures/walls/la_spezia_coast.jpg
 
 exec compton -f
 
 exec safeeyes
-
-bindsym --release Print exec "scrot -m  /home/karan/Pictures/Screenshots/%s_%H%M_%d.%m.%Y_$wx$h.png -e 'xclip -selection c -t image/png < $f'"
-
-# Monitor setup
-set $monitor_one DVI-I-1
-set $monitor_two HDMI-1
-
-# bind workspaces to monitor 1
-workspace $ws1 output $monitor_one
-workspace $ws2 output $monitor_one
-
-# bind workspaces to monitor 2
-workspace $ws3 output $monitor_two
-
-# exec_always xrandr --output eDP1 --mode 1920x1080 --pos 0x0 --rotate normal --output VGA1 --mode 1920x1080 --right-of eDP1 --rotate normal
-exec_always xrandr --output DVI-I-1 --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-1 --mode 1920x1080 --right-of DVI-I-1 --rotate normal
-
