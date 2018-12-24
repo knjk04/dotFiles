@@ -236,8 +236,8 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-exec emacs
-exec google-chrome-stable
+#exec emacs
+#exec google-chrome-stable
 
 exec_always feh --bg-scale /home/karan/Pictures/walls/mountains.jpg
 
@@ -252,11 +252,11 @@ set $monitor_one DVI-I-1
 set $monitor_two HDMI-1
 
 # bind workspaces to monitor 1
-workspace $ws1 output $monitor_one
-workspace $ws2 output $monitor_one
+# workspace $ws1 output $monitor_one
+# workspace $ws2 output $monitor_one
 
 # bind workspaces to monitor 2
-workspace $ws3 output $monitor_two
+# workspace $ws3 output $monitor_two
 
 # exec_always xrandr --output eDP1 --mode 1920x1080 --pos 0x0 --rotate normal --output VGA1 --mode 1920x1080 --right-of eDP1 --rotate normal
 exec_always xrandr --output DVI-I-1 --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-1 --mode 1920x1080 --right-of DVI-I-1 --rotate normal
