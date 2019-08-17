@@ -22,7 +22,6 @@
   Plugin 'VundleVim/Vundle.vim'
   Plugin 'vim-airline/vim-airline'
   Plugin 'vim-airline/vim-airline-themes'
-  Plugin 'altercation/vim-colors-solarized'
   Plugin 'scrooloose/syntastic'
   Plugin 'scrooloose/nerdtree'
   Plugin 'airblade/vim-gitgutter'
@@ -32,6 +31,7 @@
   Plugin 'kien/ctrlp.vim'
   Plugin 'easymotion/vim-easymotion'
   Plugin 'lervag/vimtex'
+  Plugin 'altercation/vim-colors-solarized'
 
 
 " All of your Plugins must be added before the following line
@@ -110,8 +110,9 @@
   set nu                   " Line numbers
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well
+  syntax enable
   set background=dark
-  "colorscheme solarized
+  " colorscheme solarized
   "let g:airline_solarized_bg='dark'
   "
   
