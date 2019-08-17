@@ -133,7 +133,7 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
-assign [class="Emacs"] $ws3
+# assign [class="Emacs"] $ws2
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -234,8 +234,8 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-exec emacs
-exec google-chrome-stable
+# exec emacs
+# exec google-chrome-stable
 
 exec compton -f
 
