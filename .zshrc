@@ -108,7 +108,7 @@ source $ZSH/oh-my-zsh.sh
 setxkbmap -option ctrl:nocaps
 xcape -e 'Control_L=Escape'
 
-! advanced tab completion
+# advanced tab completion
 autoload -U compinit
 compinit
 
