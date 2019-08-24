@@ -56,7 +56,7 @@ xclock -geometry 50x50-1+1 &
 
 exec i3
 
-setxkbmap gb
+setxkbmap us
 
 setxkbmap -option ctrl:nocaps
 xcape -e 'Control_L=Escape'

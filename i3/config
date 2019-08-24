@@ -239,7 +239,7 @@ bindsym XF86AudioPrev exec playerctl previous
 #exec emacs
 #exec google-chrome-stable
 
-exec_always feh --bg-scale /home/karan/Pictures/walls/mountains.jpg
+exec_always feh --bg-scale /home/karan/Pictures/walls/wall.jpg
 
 exec compton -f
 
@@ -262,4 +262,3 @@ set $monitor_two HDMI-1
 exec_always xrandr --output DVI-I-1 --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-1 --mode 1920x1080 --right-of DVI-I-1 --rotate normal
 
 bindsym --release Shift+Print exec "scrot -s  /home/karan/Pictures/Screenshots/%s_%H%M_%d.%m.%Y_$wx$h.png -e 'xclip -selection c -t image/png < $f'"
-
