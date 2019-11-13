@@ -71,6 +71,7 @@ ZSH_THEME="agnoster"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
     alias-tips
+    zsh-autosuggestions
     archlinux
     colored-man-pages
     colorize
@@ -117,3 +118,8 @@ setxkbmap -option ctrl:nocaps
 
 # make short-pressed Ctrl behave like Escape:
 xcape -e 'Control_L=Escape'
+
+# add haskell stack to path
+path+=('/home/karan/.local/bin')
+path+=('/home/karan/.gem/ruby/2.6.0/bin')
+export PATH
