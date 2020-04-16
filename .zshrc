@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/karan/.oh-my-zsh"
@@ -109,6 +109,10 @@ source $ZSH/oh-my-zsh.sh
 setxkbmap -option ctrl:nocaps
 xcape -e 'Control_L=Escape'
 
+path+=('/home/karan/.gem/ruby/2.6.0/bin')
+path+=('/home/karan/.local/bin')
+export PATH
+
 # advanced tab completion
 autoload -U compinit
 compinit
@@ -118,3 +122,4 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 [ -n "$PS1" ] && \
     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
         eval "$("$BASE16_SHELL/profile_helper.sh")"
+
