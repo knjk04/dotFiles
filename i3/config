@@ -97,16 +97,16 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1 "
+set $ws1 "1 "
 set $ws2 "2 "
-set $ws3 "3 "
-set $ws4 "4 "
-set $ws5 "5 "
-set $ws6 "6 "
-set $ws7 "7 "
-set $ws8 "8 "
-set $ws9 "9 "
-set $ws10 "10 "
+set $ws3 "3 "
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -233,8 +233,10 @@ exec safeeyes
 bindsym --release Print exec "scrot -m  /home/karan/Pictures/Screenshots/%s_%H%M_%d.%m.%Y_$wx$h.png -e 'xclip -selection c -t image/png < $f'"
 
 # Monitor setup
-set $monitor_one DVI-I-1
-set $monitor_two HDMI-1
+# set $monitor_one DVI-I-1
+set $monitor_one HDMI-1
+# set $monitor_two HDMI-1
+set $monitor_two DVI-I-1
 
 # bind workspaces to monitor 1
 workspace $ws1 output $monitor_one
@@ -250,6 +252,11 @@ workspace $ws8 output $monitor_two
 workspace $ws9 output $monitor_two
 workspace $ws0 output $monitor_two
 
-exec_always xrandr --output DVI-I-1 --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-1 --mode 1920x1080 --right-of DVI-I-1 --rotate normal
+# exec_always xrandr --output DVI-I-1 --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-1 --mode 1920x1080 --right-of DVI-I-1 --rotate normal
+# exec_always xrandr --output DVI-I-1 --mode 2560x1440 --pos 0x0 --rotate normal --output HDMI-1 --mode 1920x1080 --right-of DVI-I-1 --rotate normal
+# exec_always xrandr --output DVI-I-1 --mode 2560x1440 --pos 0x0 --rotate normal --output HDMI-1 --mode 2560x1440 --left-of DVI-I-1 --rotate normal
+exec_always xrandr --output HDMI-1 --mode 2560x1440 --pos 0x0 --rotate normal --output DP-2 --mode 2560x1440 --right-of HDMI-1 --rotate normal
 
 bindsym --release Shift+Print exec "scrot -s  /home/karan/Pictures/Screenshots/%s_%H%M_%d.%m.%Y_$wx$h.png -e 'xclip -selection c -t image/png < $f'"
+
+exec --no-startup-id nm-applet
