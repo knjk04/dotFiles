@@ -122,4 +122,12 @@ xcape -e 'Control_L=Escape'
 # add haskell stack to path
 path+=('/home/karan/.local/bin')
 path+=('/home/karan/.gem/ruby/2.6.0/bin')
+path+=('/home/karan/.executables')
+path+=('/opt')
 export PATH
+
+# Base16 Shell
+BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+        eval "$("$BASE16_SHELL/profile_helper.sh")"
