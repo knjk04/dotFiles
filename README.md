@@ -1,6 +1,6 @@
 # Dotfiles
 
-![Image of terminal](screenshots/terminal)
+![Image of terminal](screenshots/desktop-terminal.png)
 
 (Terminal theme: Base 16 Nord)
 
